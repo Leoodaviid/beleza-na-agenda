@@ -2,9 +2,7 @@
 
 ### ✅ Aplicação web para que os salões de beleza e profissionais autônomos possam gerenciar suas agendas, serviços, profissionais e disponibilizar sua agenda de atendimentos no aplicativo.
 
-<br>
 
-<!---Esses são exemplos. Veja https://shields.io para outras pessoas ou para personalizar este conjunto de escudos. Você pode querer incluir dependências, status do projeto e informações de licença aqui--->
 
 <img src="./src/assets/model-readme.png" alt="exemplo imagem">
 
@@ -24,7 +22,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-<!---Estes são apenas requisitos de exemplo. Adicionar, duplicar ou remover conforme necessário--->
+
 
 - Você instalou a versão mais recente do `<React / Node>`
 - Você tem uma máquina `<Windows / Linux / Mac>`.
@@ -52,6 +50,40 @@ Para usar belezanaagenda-ts, execute no terminal o seguinte comando para inicial
 ```
  npm start
 ```
+
+
+
+<h3>Observações importantes!!</h3>
+
+<p>Nosso deploy parte front end foi feito via vercel e nossa api foi implementada usando http, portanto se você estiver tentando realizar o login via link da vercel: <a>https://agenda-testes.vercel.app</a> , peço que realize os seguintes passos abaixo para conseguir efetuar o login, pois temos um error Mixed Content, justamente quando nosso site roda em https e tenta fazer requisiçoes na api via http. Caso você clone esse reposiório rodará normal na sua maquina não sendo necessário realizar os passos abaixo. 
+ <ul>
+     <li>
+         <span>Primeiro passo: Clique em ver informações do website.</span>
+         <br/>
+     <img src="./src/assets/Screenshot_1.png" /></li>
+      <br/>
+     <li>
+         <span>Segundo passo: Acesse as definiçoes do site.</span>
+         <br/>
+     <img src="./src/assets/Screenshot_2.png" /></li>
+      <br/>
+     <li>
+         <span>Terceiro passo: permita conteudo inseguro nas permissões.</span>
+     <img src="./src/assets/Screenshot_3.png" /></li>
+     </ul>
+<p>
+ Caso se sinta inseguro, coloque dados ficticios, no cadastro pedimos numero de telefone pois nosso backend envia uma mensagem no whatsapp após o agendamento realizado.        
+</p>
+
+
+
+
+
+​     
+
+
+
+
 
 ## 🤝 Colaboradores
 
