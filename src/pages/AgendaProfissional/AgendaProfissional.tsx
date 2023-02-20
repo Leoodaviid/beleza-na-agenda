@@ -1,12 +1,11 @@
 import { useContext, useEffect } from "react";
-import Button from "../../components/Button/Button";
-import Header from "../../components/Header/Header";
 import { UserAgenda } from "../../components/Contexts/UserAgenda";
 import { listarProfissionalServicoId } from "../../services/MainApi/servicos";
-import { SectionStepThree } from "./style";
-import Profissional from "../../components/Profissional/Profissional";
 import { UserContext } from "../../components/Contexts/UserContext";
-import UserHeader from "../../components/UserHeader/UserHeader";
+import { ProfissionalPicker } from "./style";
+import Button from "../../components/Button/Button";
+import Profissional from "../../components/Profissional/Profissional";
+import Theme from "../../components/Theme/Theme";
 
 function AgendaProfissional() {
   const {
@@ -50,25 +49,19 @@ function AgendaProfissional() {
     }
   }
   return (
-    <SectionStepThree>
-      <Header />
-      <div className="container-grid">
-        <div className="textStep">
-          <UserHeader />
-        </div>
-        <div className="profissionalPicker">
-          {profissional && (
-            <Profissional
-              nome={profissional.profissional?.nome}
-              servico={profissional.servico?.servico}
-            />
-          )}
-          <Button onClick={handleSubmit} type="submit" className="mt-5">
-            Confirmar
-          </Button>
-        </div>
-      </div>
-    </SectionStepThree>
+    <Theme>
+      <ProfissionalPicker>
+        {profissional && (
+          <Profissional
+            nome={profissional.profissional?.nome}
+            servico={profissional.servico?.servico}
+          />
+        )}
+        <Button onClick={handleSubmit} type="submit" className="mt-5">
+          Confirmar
+        </Button>
+      </ProfissionalPicker>
+    </Theme>
   );
 }
 export default AgendaProfissional;
