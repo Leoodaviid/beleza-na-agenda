@@ -1,37 +1,38 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserAgenda } from "../../components/Contexts/UserAgenda";
 import { useNavigate } from "react-router-dom";
-import Header from "../../components/Header/Header";
-import Button from "../../components/Button/Button";
 import HourPicker from "../../components/Horas/HourPicker";
-import { SectionStepTwo } from "./Styles";
-import UserHeader from "../../components/UserHeader/UserHeader";
+import Theme from "../../components/Theme/Theme";
+import Button from "../../components/Button/Button";
+import Error from "../../components/Helper/Error";
 
 function AgendaHorario() {
-  const navigate = useNavigate();
   const { hora } = useContext(UserAgenda);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-  function handleSubmit() {
-    if (hora) navigate("/profissional");
+  useEffect(() => {
+    if (hora === null) {
+      navigate("/data");
+    }
+  }, [hora, navigate]);
+
+  function handleNextStep() {
+    if (hora) {
+      navigate("/profissional");
+    } else {
+      setError("Selecione uma hora válida.");
+    }
   }
 
   return (
-    <SectionStepTwo>
-      <Header />
-      <div className="container-grid">
-        <div className="textStep">
-          <UserHeader />
-        </div>
-        <div className="hourPicker">
-          <HourPicker />
-          <div>
-            <Button onClick={handleSubmit} type="submit" className="mt-5">
-              Confirmar
-            </Button>
-          </div>
-        </div>
-      </div>
-    </SectionStepTwo>
+    <Theme>
+      <HourPicker />
+      <Button className="mt-2" onClick={handleNextStep}>
+        Confirmar
+      </Button>
+      <Error error={error} />
+    </Theme>
   );
 }
 
